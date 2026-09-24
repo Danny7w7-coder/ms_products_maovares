@@ -12,6 +12,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: dev
+    env:
+      MONGO_URI: ${{ secrets.MONGO_URI }}
+      MONGO_DB: ${{ vars.MONGO_DB }}
     permissions:
       contents: read #This is required for actions/checkout
 
@@ -60,4 +64,3 @@ jobs:
           app-name: 'ms-products-danny'
           slot-name: 'Production'
           package: '*.jar'
-          
